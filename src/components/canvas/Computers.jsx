@@ -31,7 +31,6 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isHighPerformance, setIsHighPerformance] = useState(true);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -39,15 +38,6 @@ const ComputersCanvas = () => {
 
     // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
-
-    // Check for high performance devices
-    const checkPerformance = () => {
-      // Simple check based on user agent or other criteria
-      const isHighPerformanceDevice = !/Mobi|Android/i.test(navigator.userAgent);
-      setIsHighPerformance(isHighPerformanceDevice);
-    };
-
-    checkPerformance();
 
     // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
@@ -57,6 +47,7 @@ const ComputersCanvas = () => {
     // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
+    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -65,8 +56,8 @@ const ComputersCanvas = () => {
   return (
     <Canvas
       frameloop='demand'
-      shadows={isHighPerformance}
-      dpr={isHighPerformance ? [1, 2] : [1]}
+      shadows
+      dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
@@ -79,7 +70,7 @@ const ComputersCanvas = () => {
         <Computers isMobile={isMobile} />
       </Suspense>
 
-      {isHighPerformance && <Preload all />}
+      <Preload all />
     </Canvas>
   );
 };
