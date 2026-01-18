@@ -1,9 +1,21 @@
+
+
+import { useState, useEffect } from "react";
+import { FaSyncAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
+  const [showHint, setShowHint] = useState(true);
+
+  useEffect(() => {
+    if (!showHint) return;
+    const timer = setTimeout(() => setShowHint(false), 15000);
+    return () => clearTimeout(timer);
+  }, [showHint]);
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -24,6 +36,24 @@ const Hero = () => {
           </p>
         </div>
       </div>
+
+
+
+      {/* Interactivity hint (shows for 5s on mount) */}
+      {showHint && (
+        <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[28%] z-20 flex flex-col items-center pointer-events-none select-none">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="bg-black bg-opacity-60 text-white px-4 py-2 rounded-full text-sm shadow-lg flex items-center gap-2"
+          >
+            <FaSyncAlt className="inline-block mr-1 animate-spin-slow" size={20} />
+            <span>Drag to rotating the computer!</span>
+          </motion.div>
+        </div>
+      )}
 
       <ComputersCanvas />
 

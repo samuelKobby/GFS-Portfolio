@@ -1,3 +1,4 @@
+import profile from "./profile.png";
 import logo from "./logo.svg";
 import backend from "./backend.png";
 import creator from "./creator.png";
@@ -76,5 +77,6 @@ export {
   Help,
   Fillup,
   CampG,
-  PF
+  PF,
+  profile
 };

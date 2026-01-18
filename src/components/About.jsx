@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { services } from "../constants";
+import { profile } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
@@ -36,23 +37,47 @@ const ServiceCard = ({ index, title, icon }) => (
 );
 
 const About = () => {
+
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
+      {/* Modal for enlarged image */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70" onClick={() => setShowModal(false)}>
+          <img
+            src={profile}
+            alt="Profile Enlarged"
+            className="w-96 h-96 rounded-full object-cover border-4 border-secondary shadow-2xl transition-transform duration-300 ease-in-out"
+            style={{ maxWidth: '90vw', maxHeight: '90vh' }}
+          />
+        </div>
+      )}
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
+      <div className="flex flex-col md:flex-row items-center justify-between mt-4 gap-8">
+        <div className="flex-1">
+          <motion.div variants={textVariant()}>
+            <p className={styles.sectionSubText}>Introduction</p>
+            <h2 className={styles.sectionHeadText}>About Me.</h2>
+          </motion.div>
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          >
+            I'm a skilled software developer with experience in TypeScript and
+            JavaScript, and expertise in frameworks like React, Node.js, and
+            Supabase. I'm a quick learner and collaborate closely with clients to
+            create efficient, scalable, and user-friendly solutions that solve
+            real-world problems. Let's work together to bring your ideas to life!
+          </motion.p>
+        </div>
+        <img
+          src={profile}
+          alt="Profile"
+          className="w-48 h-48 rounded-full object-cover border-4 border-secondary shadow-lg mb-4 md:mb-0 transition-transform duration-300 ease-in-out hover:scale-110 cursor-pointer"
+          onClick={() => setShowModal(true)}
+        />
+      </div>
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (
