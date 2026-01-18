@@ -25,7 +25,12 @@ import {
   CG,
   Finditem,
   sbuild,
-  rub
+  rub,
+  Help,
+  Fillup,
+  CampG,
+  PF,
+
 } from "../assets";
 
 export const navLinks = [
@@ -190,7 +195,7 @@ const testimonials = [
   {
     testimonial:
       "I've never met a web developer who truly cares about their clients' success like Samuel does.",
-    name: "Bismark",
+    name: "Alex",
     designation: "CEO",
     company: "Tipsy Alley Gh",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
@@ -226,6 +231,7 @@ const projects = [
     ],
     image: AttendQR, 
     source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://attend-qr.netlify.app/",
   },
 
   {
@@ -246,10 +252,11 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: CG, 
+    image: CampG, 
     source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://camp-guide.netlify.app/",
   },
-  
+
   {
     name: "Find Item",
     description:
@@ -270,7 +277,83 @@ const projects = [
     ],
     image: Finditem, 
     source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://finditem.netlify.app/",
   },
+
+  {
+    name: "Fill Up",
+    description:
+      "Fill Up is a roadside assistance web app that enables users to request both fuel delivery and on-demand mechanical support when stranded on the road. It connects customers with nearby fuel stations and mechanics to provide fast, reliable emergency assistance.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "supabase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: Fillup, 
+    source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://fillup247.netlify.app/",
+  },
+
+  {
+    name: "Pharma Finder",
+    description:
+      "A healthcare web app that helps users quickly locate nearby pharmacies and check the availability of essential medicines. It simplifies access to medication by reducing the time spent searching for open and stocked pharmacies.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "supabase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: PF, 
+    source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://pharmar-finder.netlify.app/",
+  },
+  
+  {
+    name: "Help",
+    description:
+      "Help is a first aid assistance web app that provides quick, step-by-step guidance for handling common medical emergencies. It is designed to be simple, fast, and accessible, helping users take the right action when immediate professional help is not available.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "supabase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "Tarvus",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: Help, 
+    source_code_link: "https://github.com/samuelKobby",
+    website_link: "https://fahelp.netlify.app/",
+  },
+
+  
 ];
 
 export { services, technologies, experiences, testimonials, projects };

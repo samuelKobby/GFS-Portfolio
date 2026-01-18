@@ -33,6 +33,12 @@ import AttendQR from "./AttendQR.jpg";
 import CG from "./CG.jpg";
 import Finditem from "./Finditem.jpg";
 import Logo from "./Logo.png";
+import Help from "./Help.png";
+import Fillup from "./Fillup.png";
+import CampG from "./CampG.png";
+import PF from "./PF.png";
+
+
 
 export {
   logo,
@@ -67,4 +73,8 @@ export {
   cakcsod,
   rub,
   Logo,
+  Help,
+  Fillup,
+  CampG,
+  PF
 };
